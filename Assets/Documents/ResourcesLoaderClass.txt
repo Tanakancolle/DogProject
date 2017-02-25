@@ -1,0 +1,41 @@
+@startuml
+namespace EditorCreate {
+
+class ResourcesLoaderCreateWindow {
+  +static void CreateWindow()
+}
+
+class ResourcesLoaderCreateOption {
+  +string createPath
+}
+
+class ResourcesLoaderCreater {
+  +void Create(ResourcesLoaderCreateOption option)
+}
+
+interface ILoaderEditor {
+  StringBuilder Edit(StringBuilder builder, ILoaderParameter parameter)
+}
+
+interface ILoaderParameter {
+  string[] GetTargetExtensions()
+  string GetTypeName()
+}
+
+ResourcesLoaderCreateWindow -down-> ResourcesLoaderCreater
+ResourcesLoaderCreateWindow --> ResourcesLoaderCreateOption
+
+ResourcesLoaderCreater -> ResourcesLoaderCreateOption
+ResourcesLoaderCreater -down-> ILoaderEditor
+ResourcesLoaderCreater -down-> ILoaderParameter
+
+ILoaderEditor <|-down- EnumEditor
+ILoaderEditor <|-down- GetNameEditor
+ILoaderEditor <|-down- LoadEditor
+
+ILoaderParameter <|-down- AllLoaderParameter
+ILoaderParameter <|-down- TextureLoaderParameter
+ILoaderParameter <|-down- AudioClipLoaderParameter
+
+}
+@enduml
