@@ -14,12 +14,16 @@ class ResourcesLoaderCreater {
 }
 
 interface ILoaderEditor {
-  StringBuilder Edit(StringBuilder builder, ILoaderParameter parameter)
+  void Edit(StringBuilder builder, ILoaderParameter parameter)
 }
 
 interface ILoaderParameter {
   string[] GetTargetExtensions()
   string GetTypeName()
+}
+
+class ResourcesLoaderCreateUtility {
+  
 }
 
 ResourcesLoaderCreateWindow -down-> ResourcesLoaderCreater
