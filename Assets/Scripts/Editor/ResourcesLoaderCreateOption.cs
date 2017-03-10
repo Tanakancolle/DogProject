@@ -3,7 +3,6 @@ namespace EditorCreate
 {
     public class ResourcesLoaderCreateOption
     {
-        public string createPath;
-
+        public string createPath = "Assets/ResourcesLoader";
     }
 }

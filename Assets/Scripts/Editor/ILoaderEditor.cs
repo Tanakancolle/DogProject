@@ -2,8 +2,11 @@
 
 namespace EditorCreate
 {
-    public interface ILoaderEditor
+    public interface ILoaderEditor : IUsings
     {
-        void Edit(StringBuilder builder, ILoaderParameter parameter);
+        /// <summary>
+        /// 記述
+        /// </summary>
+        void Edit(StringBuilder builder, ILoaderParameter parameter, int tab_num, string[] paths);
     }
 }

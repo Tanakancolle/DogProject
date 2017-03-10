@@ -1,13 +1,23 @@
 ﻿using System.Text;
+using System.Linq;
+using System.IO;
 
 namespace EditorCreate
 {
     public class EnumEditor : ILoaderEditor
     {
-        public void Edit(StringBuilder builder, ILoaderParameter parameter)
+        public void Edit(StringBuilder builder, ILoaderParameter parameter, int tab_num, string[] paths)
         {
-            var type_name = parameter.GetTypeName ();
-            StringBuilderHelper.EditEnum(builder,string.Format(ResourcesLoaderCreateUtility.enumNameFormat,type_name);
+            StringBuilderHelper.EditEnum (
+                builder,
+                string.Format (ResourcesLoaderCreateUtility.enumNameFormat, parameter.GetName ()),
+                paths.Select (p => Path.GetFileNameWithoutExtension (p)).ToArray (),
+                1);
+        }
+
+        public string[] GetUsings()
+        {
+            return null;
         }
     }
 }

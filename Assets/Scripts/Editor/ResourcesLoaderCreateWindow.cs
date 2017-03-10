@@ -1,5 +1,5 @@
 ﻿using UnityEditor;
-
+using UnityEngine;
 
 namespace EditorCreate
 {
@@ -12,20 +12,31 @@ namespace EditorCreate
 
         /// <summary>
         /// ウィンドウ生成
-        /// </summary>
+        /// </summary>                      
+        [MenuItem ("Tools/Resources Loader")]
         public static void CreateWindow()
         {
             if (instance == null) {
                 instance = CreateInstance<ResourcesLoaderCreateWindow> ();
             }
 
-            instance.titleContent = new UnityEngine.GUIContent ("ResourcesLoader");
+            instance.titleContent = new GUIContent ("ResourcesLoader");
             instance.ShowUtility ();
         }
 
+        /// <summary>
+        /// オプション
+        /// </summary>
+        private ResourcesLoaderCreateOption option = new ResourcesLoaderCreateOption();
+
         private void OnGUI()
         {
+            option.createPath = EditorGUILayout.TextField ("生成パス", option.createPath);
             
+            if (GUILayout.Button("OK")) {
+                var resources = new ResourcesLoaderCreater ();
+                resources.Create (option);
+            }
         }
     }
 }
