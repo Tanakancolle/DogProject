@@ -12,7 +12,7 @@ class ResourcesLoaderCreateOption {
 class ResourcesLoaderCreater {
   +void Create(ResourcesLoaderCreateOption option)
 }
-
+∂
 interface ILoaderEditor {
   void Edit(StringBuilder builder, ILoaderParameter parameter, int tab_num, string[] paths)
 }

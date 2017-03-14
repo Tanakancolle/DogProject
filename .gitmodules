@@ -1,6 +1,0 @@
-[submodule "Assets/UML"]
-	path = Assets/UML
-url=git@github.com:Tanakancolle/PlantProject.git
-[submodule "Assets/Core"]
-	path = Assets/Core
-url=git@github.com:Tanakancolle/Core.git
