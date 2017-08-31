@@ -12,7 +12,7 @@ class ResourcesLoaderCreateOption {
 class ResourcesLoaderCreater {
   +void Create(ResourcesLoaderCreateOption option)
 }
-∂
+
 interface ILoaderEditor {
   void Edit(StringBuilder builder, ILoaderParameter parameter, int tab_num, string[] paths)
 }
@@ -50,6 +50,7 @@ ILoaderEditor <|-down- LoadEditor
 ILoaderParameter <|-down- AllLoaderParameter
 ILoaderParameter <|-down- TextureLoaderParameter
 ILoaderParameter <|-down- AudioClipLoaderParameter
+ILoaderParameter <|-down- TextAssetLoaderParameter
 
 }
 @enduml

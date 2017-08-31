@@ -7,19 +7,24 @@ namespace EditorCreate
     public class ResourcesLoaderCreateUtility
     {
         /// <summary>
+        /// ダミーパス
+        /// </summary>
+        public static readonly string dummyPath = "dummy";
+
+        /// <summary>
         /// Enum定義時のフォーマット
         /// </summary>
-        public static readonly string enumNameFormat = "e{0}";
+        private static readonly string enumNameFormat = "e{0}";
 
         /// <summary>
         /// パス配列フォーマット
         /// </summary>
-        public static readonly string pathArrayFormat = "{0}Paths";
+        private static readonly string pathArrayFormat = "{0}Paths";
 
         /// <summary>
         /// パス取得関数フォーマット
         /// </summary>
-        public static readonly string getPathMethodFormat = "Get{0}Name";
+        private static readonly string getPathMethodFormat = "Get{0}Name";
 
         /// <summary>
         /// 無視拡張子配列
@@ -48,7 +53,7 @@ namespace EditorCreate
                 }
             }
 
-            return list.ToArray();
+            return list.Select (p => p.Replace ("\\", "/")).ToArray ();
         }
 
         /// <summary>
@@ -66,6 +71,36 @@ namespace EditorCreate
             }
 
             return false;
+        }
+        
+        /// <summary>
+        /// Enum名取得
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public static string GetEnumName(ILoaderParameter parameter)
+        {
+            return string.Format (enumNameFormat, parameter.GetName ());
+        }
+
+        /// <summary>
+        /// パス配列名取得
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public static string GetPathArrayName(ILoaderParameter parameter)
+        {
+            return string.Format (pathArrayFormat, parameter.GetName ());
+        }
+             
+        /// <summary>
+        /// パス取得関数名取得
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public static string GetPathMethodName(ILoaderParameter parameter)
+        {
+            return string.Format (getPathMethodFormat, parameter.GetName ());
         }
     }
 }

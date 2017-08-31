@@ -14,6 +14,7 @@ namespace EditorCreate
             new AllLoaderParameter(),
             new TextureLoaderParameter(),
             new AudioClipLoaderParameter(),
+            new TextAssetLoaderParameter(),
         };
 
         /// <summary>
@@ -59,7 +60,7 @@ namespace EditorCreate
                     // パス取得
                     var paths = ResourcesLoaderCreateUtility.GetPathsInResourcesFolder (parameter.GetTargetExtensions ());
                     if (paths.Length == 0) {
-                        paths = new string[] { "dummy" };
+                        paths = new string[] { ResourcesLoaderCreateUtility.dummyPath };
                     }
 
                     // エディタごとに処理

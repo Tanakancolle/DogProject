@@ -10,8 +10,11 @@ namespace EditorCreate
         {
             StringBuilderHelper.EditEnum (
                 builder,
-                string.Format (ResourcesLoaderCreateUtility.enumNameFormat, parameter.GetName ()),
-                paths.Select (p => Path.GetFileNameWithoutExtension (p)).ToArray (),
+                ResourcesLoaderCreateUtility.GetEnumName (parameter),
+                paths
+                .Select (p => Path.GetFileNameWithoutExtension (p))
+                .Select (p => StringBuilderHelper.ReplaceEnumInvaild (p))
+                .ToArray (),
                 1);
         }
 

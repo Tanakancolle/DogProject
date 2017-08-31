@@ -19,11 +19,11 @@ namespace EditorCreate
                 method_after = " where T : Object";
             }
 
-            builder.AppendLine (string.Format ("{0}public static {1} Load{2}({3} {4}){5}", 
-                tab, 
-                type_name, 
-                method_name, 
-                string.Format (ResourcesLoaderCreateUtility.enumNameFormat, parameter.GetName ()), 
+            builder.AppendLine (string.Format ("{0}public static {1} Load{2}({3} {4}){5}",
+                tab,
+                type_name,
+                method_name,
+                ResourcesLoaderCreateUtility.GetEnumName (parameter),
                 LoadEditor.argumentName,
                 method_after));
 
@@ -33,7 +33,7 @@ namespace EditorCreate
                 builder.AppendLine (string.Format ("{0}return Resources.Load<{1}> ({2} ({3}));",
                     tab,
                     type_name,
-                    string.Format (ResourcesLoaderCreateUtility.getPathMethodFormat, parameter.GetName ()),
+                    ResourcesLoaderCreateUtility.GetPathMethodName (parameter),
                     LoadEditor.argumentName));
             }
             tab = StringBuilderHelper.SetTab (tab_num);

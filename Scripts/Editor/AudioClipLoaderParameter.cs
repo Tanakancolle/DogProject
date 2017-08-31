@@ -12,7 +12,9 @@ namespace EditorCreate
 
         public string[] GetTargetExtensions()
         {
-            return new string[] { "mp3", "wav" };
+            return new string[] {
+                "mp3", "wav", "aif", "ogg", "xm", "mod", "it", "s3m"
+            };
         }
 
         public string GetTypeName()

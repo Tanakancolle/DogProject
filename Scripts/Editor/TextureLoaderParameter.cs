@@ -12,7 +12,9 @@ namespace EditorCreate
 
         public string[] GetTargetExtensions()
         {
-            return new string[] { "png", "jpg" };
+            return new string[] { 
+                "png", "jpg", "psd", "tiff", "tga", "gif", "bmp", "iff", "pict", "exr", "hdr"
+            };
         }
 
         public string GetTypeName()
